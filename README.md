@@ -1,4 +1,4 @@
-## Toggle Toolbar, Dock and Icons visibility with one click to create minimalistic look of your Mac
+## Toggle Toolbar, Dock and Icons visibility with one click to create minimalist look of your Mac
 
 - How To Use
 	1. Clone this repository
