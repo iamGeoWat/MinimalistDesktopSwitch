@@ -1,13 +1,14 @@
-# [Needs Update & Fix!]
+## Hide Toolbar, Dock, Desktop icons with one click on MacOS
 
-# CleanMacDesktop
-# One click, auto hide menu bar, dock and icons on desktop to create a full view of your wallpaper. With AppleScript.
-## HowToUse
-1. Download this repository, double-click cleandesktop.scpt, everytime you run this, the display status will reverse.
-2. Copy HideAl!.workflow to /Users/macbook/Library/Services and add a new service, you can find a shortcut in upper-left Finder-Service.
+- How To Use
+	1. Clone this repository
+	2. Double click HideAl!.workflow, install with Automator installer
+	3. Now you can use it as a System Service, you can find it at Toolbar - Finder - Services - HideAl!
+	
+> As it has become a System Service, you can bind it to keyboard shortcuts or gestures or anything else
+> You can find the workflow file later in /Users/Your-User-Name/Library/Services
 
-
-# 一键隐藏桌面所有的东西，更好的展现你的壁纸。
-## 使用方式
-1. 下载后双击 HideAl! 文件运行 cleandesktop.scpt 文件，每一次运行都会倒转显示状态。
-2. 将 HideAl!.workflow 文件拷贝至 /Users/macbook/Library/Services 文件夹，加以设置，添加到服务后就可以在左上角的 访达-服务 里找到了。
+- Use Cases
+	1. I want to appreciate my new wallpaper.
+	2. I want to maximize current application window, but I don't want to go to full screen mode.
+	3. I am a desktop minimalist!
