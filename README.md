@@ -6,7 +6,7 @@
 	3. Now you can use it as a System Service, you can find it at Toolbar - Finder - Services - HideAl!
 	
 > As it has become a System Service, you can bind it to keyboard shortcuts or gestures or anything else.
-
+> 
 > You can find the workflow file later in /Users/Your-User-Name/Library/Services
 
 - Use Cases
