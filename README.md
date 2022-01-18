@@ -1,11 +1,12 @@
-## Hide Toolbar, Dock, Desktop icons with one click on MacOS
+## Toggle Toolbar, Dock and Icons visibility with one click to create minimalistic look of your Mac
 
 - How To Use
 	1. Clone this repository
 	2. Double click HideAl!.workflow, install with Automator installer
 	3. Now you can use it as a System Service, you can find it at Toolbar - Finder - Services - HideAl!
 	
-> As it has become a System Service, you can bind it to keyboard shortcuts or gestures or anything else
+> As it has become a System Service, you can bind it to keyboard shortcuts or gestures or anything else.
+
 > You can find the workflow file later in /Users/Your-User-Name/Library/Services
 
 - Use Cases
