@@ -1,5 +1,7 @@
 ## Toggle Toolbar, Dock and Icons visibility with one click to create minimalist look of your Mac
 
+[Imgur](https://i.imgur.com/3RDZ1Yr.gifv)
+
 - How To Use
 	1. Clone this repository
 	2. Double click HideAl!.workflow, install with Automator installer
