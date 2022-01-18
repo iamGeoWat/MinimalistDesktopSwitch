@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>AMApplicationBuild</key>
-	<string>444.7</string>
+	<string>512</string>
 	<key>AMApplicationVersion</key>
-	<string>2.8</string>
+	<string>2.10</string>
 	<key>AMDocumentVersion</key>
 	<string>2</string>
 	<key>actions</key>
@@ -28,7 +28,7 @@
 				<string>1.0.2</string>
 				<key>AMApplication</key>
 				<array>
-					<string>自动操作</string>
+					<string>Automator</string>
 				</array>
 				<key>AMParameterProperties</key>
 				<dict>
@@ -47,11 +47,49 @@
 				<key>ActionBundlePath</key>
 				<string>/System/Library/Automator/Run AppleScript.action</string>
 				<key>ActionName</key>
-				<string>运行 AppleScript</string>
+				<string>Run AppleScript</string>
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>set lang to do shell script "defaults read .GlobalPreferences AppleLanguages | sed -n 2p"if lang is "    \"zh-Hans-CN\"," then	#reverse menu bar visibility	tell application "System Preferences"		activate		set current pane to pane "com.apple.preference.general"	end tell	delay 0.3	#if not delay, the window animation will let click action to fail	tell application "System Events"		tell application process "System Preferences"			tell window "通用"				click checkbox "自动隐藏和显示菜单栏"			end tell		end tell	end tell	if application "System Preferences" is running then		tell application "System Preferences" to quit	end if		#reverse dock visibility	tell application "System Events"		tell dock preferences			if autohide is true then				set autohide to false			else				set autohide to true			end if		end tell	end tell		#reverse desktop icon visibility	try		set toggle to do shell script "defaults read com.apple.finder CreateDesktop"		if toggle is "TRUE" then			do shell script "defaults write com.apple.finder CreateDesktop false"		else if toggle is "FALSE" then			do shell script "defaults write com.apple.finder CreateDesktop true"		end if	end try	do shell script "killall Finder"else	#reverse menu bar visibility	tell application "System Preferences"		activate		set current pane to pane "com.apple.preference.general"	end tell	delay 0.3	#if not delay, the window animation will let click action to fail	tell application "System Events"		tell application process "System Preferences"			tell window "General"				click checkbox "Automatically hide and show the menu bar"			end tell		end tell	end tell	if application "System Preferences" is running then		tell application "System Preferences" to quit	end if		#reverse dock visibility	tell application "System Events"		tell dock preferences			if autohide is true then				set autohide to false			else				set autohide to true			end if		end tell	end tell		#reverse desktop icon visibility	try		set toggle to do shell script "defaults read com.apple.finder CreateDesktop"		if toggle is "TRUE" then			do shell script "defaults write com.apple.finder CreateDesktop false"		else if toggle is "FALSE" then			do shell script "defaults write com.apple.finder CreateDesktop true"		end if	end try	do shell script "killall Finder"end if</string>
+					<string># toggle menu bar visibility
+tell application "System Preferences"
+	activate
+	set current pane to pane "com.apple.preference.dock"
+end tell
+delay 1
+tell application "System Events"
+	tell application process "System Preferences"
+		tell window 1
+			click checkbox 4
+			click checkbox 7
+		end tell
+	end tell
+end tell
+if application "System Preferences" is running then
+	tell application "System Preferences" to quit
+end if
+
+#	# another way to reverse dock visibility
+#	tell application "System Events"
+#		tell dock preferences
+#			if autohide is true then
+#				set autohide to false
+#			else
+#				set autohide to true
+#			end if
+#		end tell
+#	end tell
+
+# toggle desktop icon visibility
+try
+	set toggle to do shell script "defaults read com.apple.finder CreateDesktop"
+	if toggle is "TRUE" then
+		do shell script "defaults write com.apple.finder CreateDesktop false"
+	else if toggle is "FALSE" then
+		do shell script "defaults write com.apple.finder CreateDesktop true"
+	end if
+end try
+do shell script "killall Finder"</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -73,7 +111,7 @@
 				<string>FBCF39D3-E1AC-4617-BD16-307D7D4B83C3</string>
 				<key>Keywords</key>
 				<array>
-					<string>运行</string>
+					<string>Run</string>
 				</array>
 				<key>OutputUUID</key>
 				<string>3CFD094B-DA59-44A4-9642-FF77E55F2046</string>
@@ -107,7 +145,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>476.500000:489.000000</string>
+				<string>391.500000:368.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -119,6 +157,27 @@ end run</string>
 	<dict/>
 	<key>workflowMetaData</key>
 	<dict>
+		<key>applicationBundleID</key>
+		<string>com.apple.finder</string>
+		<key>applicationBundleIDsByPath</key>
+		<dict>
+			<key>/System/Library/CoreServices/Finder.app</key>
+			<string>com.apple.finder</string>
+		</dict>
+		<key>applicationPath</key>
+		<string>/System/Library/CoreServices/Finder.app</string>
+		<key>applicationPaths</key>
+		<array>
+			<string>/System/Library/CoreServices/Finder.app</string>
+		</array>
+		<key>inputTypeIdentifier</key>
+		<string>com.apple.Automator.nothing</string>
+		<key>outputTypeIdentifier</key>
+		<string>com.apple.Automator.nothing</string>
+		<key>presentationMode</key>
+		<integer>11</integer>
+		<key>processesInput</key>
+		<integer>0</integer>
 		<key>serviceApplicationBundleID</key>
 		<string>com.apple.finder</string>
 		<key>serviceApplicationPath</key>
@@ -128,6 +187,10 @@ end run</string>
 		<key>serviceOutputTypeIdentifier</key>
 		<string>com.apple.Automator.nothing</string>
 		<key>serviceProcessesInput</key>
+		<integer>0</integer>
+		<key>systemImageName</key>
+		<string>NSActionTemplate</string>
+		<key>useAutomaticInputType</key>
 		<integer>0</integer>
 		<key>workflowTypeIdentifier</key>
 		<string>com.apple.Automator.servicesMenu</string>
