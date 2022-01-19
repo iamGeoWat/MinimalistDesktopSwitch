@@ -10,6 +10,8 @@
 > As it has become a System Service, you can bind it to keyboard shortcuts or gestures or anything else.
 > 
 > You can find the workflow file later in /Users/Your-User-Name/Library/Services
+> 
+> You may need to try different delay time in line 6 to match your Mac's actual speed, older model needs more time to open System Preferences window.
 
 - Use Cases
 	1. I want to appreciate my new wallpaper.
